@@ -605,6 +605,15 @@ pre code {
   background-color: lightgray;
 }
 
+.container-login {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 300px;
+  padding-left: 300px;
+  width: 100%;
+  /* background-color: lightgray; */
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;

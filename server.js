@@ -11,10 +11,37 @@ var expressSession = require('express-session');
 app.use(expressSession({ secret: 'max', saveUninitialized: false, resave: false }));
 
 app.get('/', (req, res) => {
-    req.session.alertLogin = false;
     res.render('index.hbs', {
-        login : req.session.alertLogin
+        login : req.session.alertLogin,
+        uname :  req.session.uname
     });
+});
+
+app.get('/login', (req, res) => {
+    res.render('login.hbs', {
+        regisComplete : req.session.regisComplete
+    });
+    req.session.regisComplete = null;
+});
+
+app.post('/checklogin', (req, res) => {
+    req.session.uname = req.body.uname;
+    req.session.alertLogin = true;
+    res.redirect('/');
+});
+
+app.get('/signup', (req, res) => {
+    res.render('signup.hbs');
+});
+
+app.post('/registoDB', (req, res) => {
+    req.session.regisComplete = true;
+    res.redirect('login');
+});
+
+app.get('/logout', (req, res) => {
+    req.session.alertLogin = false;
+    res.render('index.hbs');
 });
 
 app.get('/thaimovie', (req, res) => {
