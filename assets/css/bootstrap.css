@@ -614,6 +614,14 @@ pre code {
   /* background-color: lightgray; */
 }
 
+.container-iframe {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  background-color: white;
+}
+
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;

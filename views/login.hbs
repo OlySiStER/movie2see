@@ -14,11 +14,12 @@
 </head>
 
 <body class="bg-dark">
+
+    
     {{#if regisComplete}}
-        <script>
-            alert("Sign Up complete - Welcome to movie2see");
-        </script>
-    {{/if}}
+    <script>
+        alert("Sign Up complete - Welcome to movie2see");
+    </script> {{/if}}
     <br>
     <br>
     <center>
@@ -33,13 +34,19 @@
             <div class="card-body">
                 <form action="/checklogin" method="post">
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" name="uname" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" autofocus required>
+                        <span class="input-group-addon" id="basic-addon1">
+                            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                        </span>
+                        <input type="text" class="form-control" name="uname" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"
+                            autofocus required>
                     </div>
                     <br>
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-key" aria-hidden="true"></i></span>
-                        <input type="password" class="form-control" name="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required>
+                        <span class="input-group-addon" id="basic-addon1">
+                            <i class="fa fa-key" aria-hidden="true"></i>
+                        </span>
+                        <input type="password" class="form-control" name="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1"
+                            required>
                     </div>
                     <br>
                     <button class="btn btn-outline-info col-lg-4" type="submit">Login</button>
@@ -57,6 +64,7 @@
     <br>
     <br>
     <br>
+
     <br> {{> footfixbottom}}
 </body>
 

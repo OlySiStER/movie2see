@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>movie 2 see</title>
+    <title>movie 2 see | HOME</title>
     <link rel="shortcut icon" href="/img/icon.png" />
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/main.css">
@@ -13,44 +13,7 @@
 </head>
 
 <body>
-    {{!-- <div class="container-fluid head">
-        <br>
-        <center>
-            <h2>movie 2 see</h2><img src="/img/logo-gray-2.png">
-        </center>
-        <br>
-    </div> --}}
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/"><img src="/img/logo-gray-2.png" height="25px"></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/thaimovie">หนังไทย</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/othermovie">หนังต่างประเทศ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/cartoon">การ์ตูน</a>
-                </li>
-                <li>
-                    <form class="form-inline">
-                        &nbsp&nbsp&nbsp<input class="form-control mr-sm-2" type="text" placeholder="Movie name" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </li>
-            </ul>
-            {{> loginbtn}}
-
-        </div>
-    </nav>
+    {{> nav}}
     <div class="container">
         <br>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -79,10 +42,12 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        <br>
-        <div class="card-deck">
+        <br> {{!--
+        <div class="card-group">
             <div class="card">
-                <img class="card-img-top" src="/img/movie_card/BladeRunner_card.jpg" alt="Card image cap">
+                <a href="/bladerunner">
+                    <img class="card-img-top" src="/img/movie_card/BladeRunner_card.jpg" alt="Card image cap">
+                </a>
                 <div class="card-body">
                     <h4 class="card-title">
                         <center>Blade Runner</center>
@@ -105,7 +70,54 @@
                     </h4>
                 </div>
             </div>
-        </div>
+        </div> --}}
+
+
+        <center>
+            <div class="row">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card" style="width: 20rem;">
+                        <div class="card-body">
+                            <a href="/bladerunner">
+                                <img class="card-img-top" src="/img/movie_card/BladeRunner_card.jpg" alt="Card image cap">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <center>Blade Runner</center>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card" style="width: 20rem;">
+                        <div class="card-body">
+                            <img class="card-img-top" src="/img/movie_card/JusticeLeague_card.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <center>Justice League</center>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card" style="width: 20rem;">
+                        <div class="card-body">
+                            <img class="card-img-top" src="/img/movie_card/ThorRagnarok_card.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <center>Thor Ragnarok</center>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </center>
+
+
+
     </div>
     <br> {{> foot}}
 

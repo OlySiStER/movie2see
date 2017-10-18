@@ -11,20 +11,29 @@ var expressSession = require('express-session');
 app.use(expressSession({ secret: 'max', saveUninitialized: false, resave: false }));
 
 app.get('/', (req, res) => {
+    req.session.homepage = true;
     res.render('index.hbs', {
-        login : req.session.alertLogin,
-        uname :  req.session.uname
+        ss_homepage: req.session.homepage,
+        login: req.session.alertLogin,
+        uname: req.session.uname
     });
+    req.session.homepage = false;
 });
 
 app.get('/login', (req, res) => {
     res.render('login.hbs', {
-        regisComplete : req.session.regisComplete
+        regisComplete: req.session.regisComplete
     });
     req.session.regisComplete = null;
 });
 
 app.post('/checklogin', (req, res) => {
+    req.session.uname = req.body.uname;
+    req.session.alertLogin = true;
+    res.redirect('/');
+});
+
+app.post('/checkloginfacebook', (req, res) => {
     req.session.uname = req.body.uname;
     req.session.alertLogin = true;
     res.redirect('/');
@@ -45,15 +54,49 @@ app.get('/logout', (req, res) => {
 });
 
 app.get('/thaimovie', (req, res) => {
-    res.render('thaimovie.hbs');
+    req.session.thaimovie = true;
+    req.session.othermovie = false;
+    req.session.cartoon = false;
+    res.render('thaimovie.hbs', {
+        ss_thaimovie: req.session.thaimovie,
+        ss_othermovie: req.session.othermovie,
+        ss_cartoon: req.session.cartoon,
+        login: req.session.alertLogin,
+        uname: req.session.uname
+    });
 });
 
 app.get('/othermovie', (req, res) => {
-    res.render('othermovie.hbs');
+    req.session.thaimovie = false;
+    req.session.othermovie = true;
+    req.session.cartoon = false;
+    res.render('othermovie.hbs', {
+        ss_thaimovie: req.session.thaimovie,
+        ss_othermovie: req.session.othermovie,
+        ss_cartoon: req.session.cartoon,
+        login: req.session.alertLogin,
+        uname: req.session.uname
+    });
 });
 
 app.get('/cartoon', (req, res) => {
-    res.render('cartoon.hbs');
+    req.session.thaimovie = false;
+    req.session.othermovie = false;
+    req.session.cartoon = true;
+    res.render('cartoon.hbs', {
+        ss_thaimovie: req.session.thaimovie,
+        ss_othermovie: req.session.othermovie,
+        ss_cartoon: req.session.cartoon,
+        login: req.session.alertLogin,
+        uname: req.session.uname
+    });
+});
+
+app.get('/bladerunner', (req, res) => {
+    res.render('bladerunner.hbs', {
+        login: req.session.alertLogin,
+        uname: req.session.uname
+    });
 });
 
 app.listen(3001, () => {
