@@ -1,5 +1,6 @@
 const express = require('express');
 const hbs = require('hbs');
+const request = require('request');
 var bodyParser = require('body-parser');
 var app = express();
 app.use(bodyParser.json());
@@ -98,6 +99,52 @@ app.get('/bladerunner', (req, res) => {
         uname: req.session.uname
     });
 });
+
+//--------------------------- Admin -----------------------------------------------------------------
+app.get('/addmovie', (req, res) => {
+    console.log(req.session.addmoviecomplete);
+    res.render('addmovie.hbs', {
+        addmoviecomplete: req.session.addmoviecomplete
+    });
+    req.session.addmoviecomplete = false;
+});
+
+app.post('/addmovietodb', (req, res) => {
+    request.post(
+        'http://localhost:3000/movie',
+        { json: { 
+            id: null,
+            title: req.body.title,
+            img: req.body.image,
+            year: req.body.year,
+            type: req.body.type,
+            createAt: Date()
+        } },
+        function (error, response, body) {
+            console.log(response.statusCode);
+            if (response.statusCode == "201") {
+                req.session.addmoviecomplete = true;
+                res.redirect('/addmovie');
+            }
+        }
+    );
+
+    // res.redirect('/addmovie');
+    
+});
+
+app.get('/showlistmovie', (req, res) => {
+    request({
+        url: 'http://localhost:3000/movie',
+        json: true
+    }, (error, response, body) => {
+        res.render('showlistmovie.hbs', {
+            datas: body
+        });
+
+    });
+});
+
 
 app.listen(3001, () => {
     console.log('Server is up on port 3001');

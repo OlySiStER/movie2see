@@ -93,7 +93,7 @@ body {
   font-weight: normal;
   line-height: 1.5;
   color: #212529;
-  background-color: lightgray;
+  background-color: white;
 }
 
 [tabindex="-1"]:focus {
@@ -602,7 +602,8 @@ pre code {
   padding-right: 15px;
   padding-left: 15px;
   width: 100%;
-  background-color: lightgray;
+  /* background-color: white; */
+  /* background-color: lightgray; */
 }
 
 .container-login {
@@ -618,7 +619,7 @@ pre code {
   margin-right: auto;
   margin-left: auto;
   width: 100%;
-  background-color: white;
+  /* background-color: white; */
 }
 
 
@@ -3674,7 +3675,7 @@ tbody.collapse.show {
       flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  /* background-color: rgb(44, 44, 44); */
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;

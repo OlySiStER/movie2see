@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ADMIN | Add movie</title>
+</head>
+
+<body>
+    {{# if  addmoviecomplete}}
+        <script>
+            alert("Insert movie complete");
+        </script>
+    {{/if}}
+
+    <form action="/addmovietodb" method="post">
+    Title: <input type="text" name="title" id="title"> <br>
+    Image: <input type="text" name="image" alt="image"> <br>
+    Year: <input type="text" name="year" id="year"> <br>
+    Type:
+    <select name="type" id="type">
+        <option value="plsselect">--- ระบุประเภทหนัง ---</option>
+        <option value="thaimovie">หนังไทย</option>
+        <option value="othermovie">หนังต่างประเทศ</option>
+        <option value="cartoon">การ์ตูน</option>
+    </select>
+    <button type="submit">OK</button>
+    </form>
+
+
+</body>
+
+</html>
