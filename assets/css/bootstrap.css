@@ -3679,12 +3679,29 @@ tbody.collapse.show {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+  margin-top: 1.25rem;
+}
+
+.card-seemovie {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  /* background-color: rgb(44, 44, 44); */
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  /* margin-top: 1.25rem; */
 }
 
 .card-body {
   -ms-flex: 1 1 auto;
       flex: 1 1 auto;
   padding: 1.25rem;
+  
 }
 
 .card-title {

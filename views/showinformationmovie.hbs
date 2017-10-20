@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ADMIN | Movie information</title>
+</head>
+
+<body>
+
+    {{!-- {{# each informationmovie}} --}}
+        ID : {{informationmovie.id}} <br>
+        Title : {{informationmovie.title}} <br>
+        Image : {{informationmovie.img}} <br>
+        Year : {{informationmovie.year}} <br>
+        Type : {{informationmovie.type}} <br>
+        Trailer link : {{informationmovie.trailer}} <br>
+        Movie embed link : {{informationmovie.movieLink}} <br>
+        Create : {{informationmovie.createMovieDate}} <br>
+        Last Update : {{informationmovie.lastEdit}} <br><br>
+
+        {{!-- <a href="/editmovie/{{this.id}}">test</a> <br> --}}
+    {{!-- {{/each}} --}}
+
+    <a href="/showlistmovie">Show list movie</a>
+
+
+</body>
+
+</html>

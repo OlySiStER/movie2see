@@ -5,16 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ADMIN | Add movie</title>
+    <title>ADMIN | Show list movie</title>
 </head>
 
 <body>
-
-    {{# each datas}}
+    <table>
+        <tr>
+            <td><center>Title<hr></center></td>
+            <td><center>View<hr></center></td>
+            <td><center>Edit<hr></center></td>
+            <td><center>Delete<hr></center></td>
+        </tr>
+        {{# each datas}}
+            <tr>
+                <td><center>{{this.title}}<hr></center></td>
+                <td><center> <a href="/getinformation/{{this.id}}" class='btn btn-primary'> View </a> <hr></center></td>
+                <td><center> <a href="/editmovieform/{{this.id}}" class='btn btn-primary'> Edit </a> <hr></center></td>
+                <td><center> <a href="/delete/{{this.id}}" class='btn btn-primary'> Delete </a> <hr></center></td>
+            </tr>
+        {{/each}}
+    </table>
+    {{!-- {{# each datas}}
         Title {{this.id}} : {{this.title}} <br>
-    {{/each}}
-
-
+        <a href="/getinformation/{{this.id}}" class='btn btn-primary'> View movie information </a> <br>
+        <a href="/editmovieform/{{this.id}}" class='btn btn-primary'> Edit movie information </a> <br>
+        <a href="/delete/{{this.id}}" class='btn btn-primary'> Delete </a> 
+        <br>
+    {{/each}} --}}
 
 </body>
 

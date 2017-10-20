@@ -18,15 +18,15 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
-                <div class="card" style="width: 20rem;">
+                <div class="card-seemovie" style="width: 20rem;">
                     <div class="card-body">
                         <a href="/bladerunner">
-                            <img class="card-img-top" src="/img/movie_card/BladeRunner_card.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="/img/movie_card/{{informationmovie.img}}" alt="Card image cap">
                         </a>
                         <div class="card-body">
-                            <h4 class="card-title">
-                                <center>Blade Runner</center>
-                            </h4>
+                            {{!-- <h4 class="card-title"> --}}
+                                <font size="2"><center>{{informationmovie.title}}</center></font>
+                            {{!-- </h4> --}}
                         </div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
 
             <div class="col-sm-4">
                 <div class="movie-trailer">
-                    <iframe width="729px" height="353px" src="https://www.youtube.com/embed/6T2b0mp2hco" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="729px" height="353px" src="{{informationmovie.trailer}}" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
         <center>
             <div class="container-iframe">
                 <br>
-                <iframe width="640" height="350" src="https://www.youtube.com/embed/6T2b0mp2hco" frameborder="0" allowfullscreen></iframe>
+                <iframe width="640" height="350" src="{{informationmovie.movieLink}}" frameborder="0" allowfullscreen></iframe>
                 <br><br>
             </div>
         </center>
