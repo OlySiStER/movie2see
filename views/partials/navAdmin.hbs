@@ -14,34 +14,34 @@
             </li>
             {{ else }}
             <li class="nav-item active">
-                <a class="nav-link" href="/">
+                <a class="nav-link" href="/admin">
                     <img src="/img/logo-gray-2.png" height="25px">
                 </a>
             </li>
-            {{/if}} {{# if ss_thaimovie}}
+            {{/if}} {{# if ss_addmovie}}
             <li class="nav-item active">
-                <a class="nav-link" href="/thaimovie">หนังไทย</a>
+                <a class="nav-link" href="/addmovie">เพิ่มหนังใหม่</a>
             </li>
             {{ else }}
             <li class="nav-item">
-                <a class="nav-link" href="/thaimovie">หนังไทย</a>
+                <a class="nav-link" href="/addmovie">เพิ่มหนังใหม่</a>
             </li>
-            {{/if}} {{# if ss_othermovie}}
+            {{/if}} {{# if ss_showlistmovie}}
             <li class="nav-item active">
-                <a class="nav-link" href="/othermovie">หนังต่างประเทศ</a>
+                <a class="nav-link" href="/showlistmovie">ดูรายการหนัง</a>
             </li>
             {{ else }}
             <li class="nav-item">
-                <a class="nav-link" href="/othermovie">หนังต่างประเทศ</a>
+                <a class="nav-link" href="/showlistmovie">ดูรายการหนัง</a>
             </li>
-            {{/if}} {{# if ss_cartoon}}
+            {{!-- {{/if}} {{# if ss_cartoon}}
             <li class="nav-item active">
                 <a class="nav-link" href="/cartoon">การ์ตูน</a>
             </li>
             {{ else }}
             <li class="nav-item">
                 <a class="nav-link" href="/cartoon">การ์ตูน</a>
-            </li>
+            </li> --}}
             {{/if}}
             <li>
                 <form class="form-inline">

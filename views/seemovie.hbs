@@ -17,42 +17,40 @@
     <br>
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-12 col-lg-4">
                 <div class="card-seemovie" style="width: 20rem;">
                     <div class="card-body">
                         <a href="/bladerunner">
                             <img class="card-img-top" src="/img/movie_card/{{informationmovie.img}}" alt="Card image cap">
                         </a>
                         <div class="card-body">
-                            {{!-- <h4 class="card-title"> --}}
                                 <font size="2"><center>{{informationmovie.title}}</center></font>
-                            {{!-- </h4> --}}
+                                <br>
+                                <font size="2"><center>{{informationmovie.detail}}</center></font>
                         </div>
                     </div>
                 </div>
+                <br>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-12 col-lg-8">
+                <center><h4>Trailer</h4></center>
                 <div class="movie-trailer">
                     <iframe width="729px" height="353px" src="{{informationmovie.trailer}}" frameborder="0" allowfullscreen></iframe>
                 </div>
-            </div>
-        </div>
-
-        <br>
-        <center>
-            <div class="container-iframe">
                 <br>
-                <iframe width="640" height="350" src="{{informationmovie.movieLink}}" frameborder="0" allowfullscreen></iframe>
+                <hr>
+                <center><h4>Movie HD Master</h4></center>
+                <div class="container-iframe">
+                <br>
+                <iframe width="729px" height="353px" src="{{informationmovie.movieLink}}" frameborder="0" allowfullscreen></iframe>
                 <br><br>
             </div>
-        </center>
-        <br><br>
-        
+            </div>
+        </div>
+    
     </div>
-
-
-
+    {{> foot}}
 </body>
 
 </html>

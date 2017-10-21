@@ -6,33 +6,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ADMIN | Show list movie</title>
+    <link rel="shortcut icon" href="/img/icon.png" />
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline" rel="stylesheet">
 </head>
 
 <body>
-    <table>
-        <tr>
-            <td><center>Title<hr></center></td>
-            <td><center>View<hr></center></td>
-            <td><center>Edit<hr></center></td>
-            <td><center>Delete<hr></center></td>
-        </tr>
-        {{# each datas}}
-            <tr>
-                <td><center>{{this.title}}<hr></center></td>
-                <td><center> <a href="/getinformation/{{this.id}}" class='btn btn-primary'> View </a> <hr></center></td>
-                <td><center> <a href="/editmovieform/{{this.id}}" class='btn btn-primary'> Edit </a> <hr></center></td>
-                <td><center> <a href="/delete/{{this.id}}" class='btn btn-primary'> Delete </a> <hr></center></td>
-            </tr>
-        {{/each}}
-    </table>
-    {{!-- {{# each datas}}
-        Title {{this.id}} : {{this.title}} <br>
-        <a href="/getinformation/{{this.id}}" class='btn btn-primary'> View movie information </a> <br>
-        <a href="/editmovieform/{{this.id}}" class='btn btn-primary'> Edit movie information </a> <br>
-        <a href="/delete/{{this.id}}" class='btn btn-primary'> Delete </a> 
+    {{> navAdmin}}
+    <div class="container">
         <br>
-    {{/each}} --}}
+        <br>
+        <br>
 
+        <table class="table table-hover">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>
+                        <center>#
+                        </center>
+                    </th>
+                    <th>
+                        <center>Title
+                        </center>
+                    </th>
+                    <th>
+                        <center>View
+                        </center>
+                    </th>
+                    <th>
+                        <center>Edit
+                        </center>
+                    </th>
+                    <th>
+                        <center>Delete
+                        </center>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {{# each datas}}
+                <tr>
+                    <th scope="row">
+                        <center>{{this.id}}
+                        </center>
+                    </th>
+                    <td>
+                        <center>{{this.title}}
+                        </center>
+                    </td>
+                    <td>
+                        <center>
+                            <a href="/getinformation/{{this.id}}" class='btn btn-primary'> View </a>
+                        </center>
+                    </td>
+                    <td>
+                        <center>
+                            <a href="/editmovieform/{{this.id}}" class='btn btn-primary'> Edit </a>
+                        </center>
+                    </td>
+                    <td>
+                        <center>
+                            <a href="/delete/{{this.id}}" class='btn btn-primary'> Delete </a>
+                        </center>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    {{> footfixbottom}}
 </body>
 
 </html>

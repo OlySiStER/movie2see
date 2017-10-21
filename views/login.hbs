@@ -29,9 +29,20 @@
     <div class="container-login col-lg-4">
         <div class="card text-center">
             <div class="card-header bg-dark" style="color: white;">
-                <h4>Login to your account</h4>
+                <h4>Login to movie2see</h4>
             </div>
             <div class="card-body">
+                {{# if loginIncorrect}}
+                    <div class="alert alert-danger" role="alert">
+                        Username or password incorrect !!!
+                    </div>
+                {{/if}}
+
+                {{# if plslogin}}
+                    <div class="alert alert-danger" role="alert">
+                        Please login !!!
+                    </div>
+                {{/if}}
                 <form action="/checklogin" method="post">
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">
