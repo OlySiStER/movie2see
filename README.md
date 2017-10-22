@@ -23,4 +23,5 @@ Condition!
 1. You must be a member of our website. If you are new for movie2see, you can register at http://localhost:3001/signup
 2. You need to login before view the movie.
 
-by Suphachok Noopan 5730211009
+
+Developed by Suphachok Noopan 5730211009
