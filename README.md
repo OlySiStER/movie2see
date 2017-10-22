@@ -1,8 +1,25 @@
-# movie2see.com
-movie2see.com
+# movie2see
 
-by
+movie2see is a website to watch online movies.
 
-Suphachok Noopan 5730211009
+Package/module required
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "hbs": "^4.0.1",
+    "json-server": "^0.12.0",
+    "password-hash": "^1.2.2"
+You can get by open Power shell or CMD on home directory and run command
+  - npm i -g json-server
+  - npm i --save body-parser express express-session hbs password-hash
+    
+How to use?
+1. Open Power shell or CMD on home directory and run command "json-server --watch db.json"
+2. Open more Power shell or CMD on home directory and run command "node server.js"
+3. Open web browser and go to http://localhost:3001/
 
-Thunyatorn Pratheep 5730211068
+Condition!
+1. You must be a member of our website. If you are new for movie2see, you can register at http://localhost:3001/signup
+2. You need to login before view the movie.
+
+by Suphachok Noopan 5730211009
