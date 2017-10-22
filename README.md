@@ -3,6 +3,7 @@
 movie2see is a website to watch online movies.
 
 Package/module required
+
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
