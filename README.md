@@ -23,5 +23,10 @@ Condition!
 1. You must be a member of our website. If you are new for movie2see, you can register at http://localhost:3001/signup
 2. You need to login before view the movie.
 
+ID for test our website
 
+Admin
+    UID: admin, Pass: asdfasdf
+User
+    UID: user, Pass: asdfasdf
 Developed by Suphachok Noopan 5730211009
