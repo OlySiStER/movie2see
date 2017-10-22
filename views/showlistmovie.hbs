@@ -16,8 +16,7 @@
     {{> navAdmin}}
     <div class="container">
         <br>
-        <br>
-        <br>
+
 
         <table class="table table-hover">
             <thead class="thead-inverse">
@@ -25,6 +24,9 @@
                     <th>
                         <center>#
                         </center>
+                    </th>
+                    <th>
+                        <center>Picture</center>
                     </th>
                     <th>
                         <center>Title
@@ -52,6 +54,10 @@
                         </center>
                     </th>
                     <td>
+                        <center><img src="/img/movie_card/{{this.img}}" alt="pic_movie" width="150">
+                        </center>
+                    </td>
+                    <td>
                         <center>{{this.title}}
                         </center>
                     </td>
@@ -62,12 +68,12 @@
                     </td>
                     <td>
                         <center>
-                            <a href="/editmovieform/{{this.id}}" class='btn btn-primary'> Edit </a>
+                            <a href="/editmovieform/{{this.id}}" class='btn btn-warning'> Edit </a>
                         </center>
                     </td>
                     <td>
                         <center>
-                            <a href="/delete/{{this.id}}" class='btn btn-primary'> Delete </a>
+                            <a href="/delete/{{this.id}}" class='btn btn-danger'> Delete </a>
                         </center>
                     </td>
                 </tr>
@@ -75,7 +81,7 @@
             </tbody>
         </table>
     </div>
-    {{> footfixbottom}}
+    {{> foot}}
 </body>
 
 </html>
