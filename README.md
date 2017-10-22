@@ -15,8 +15,8 @@ You can get by open Power shell or CMD on home directory and run command
   - npm i --save body-parser express express-session hbs password-hash
     
 How to use?
-1. Open Power shell or CMD on home directory and run command "# json-server --watch db.json"
-2. Open new Power shell or CMD on home directory and run command "# node server.js"
+1. Open Power shell or CMD on home directory and run command "json-server --watch db.json"
+2. Open new Power shell or CMD on home directory and run command "node server.js"
 3. Open web browser and go to http://localhost:3001/
 
 Condition!
