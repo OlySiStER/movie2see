@@ -64,18 +64,12 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/checklogin', (req, res) => {
-    // console.log('http://localhost:3000/user?username='+req.body.uname);
     request({
         url: 'http://localhost:3000/user?username='+req.body.uname,
         json: true
     }, (error, response, body) => {
-        // console.log(body.length);
-        // req.session.uname = req.body.uname;
-        // req.session.alertLogin = true;
             if(body.length != 0){
                 var chkPass = passwordHash.verify(req.body.password, body[0].password);
-                // console.log(chkPass);
-                // console.log(body[0].password);
                 if (chkPass) {
                     req.session.alertLogin = true;
                     req.session.uname = req.body.uname;
@@ -91,26 +85,13 @@ app.post('/checklogin', (req, res) => {
                     req.session.alertLogin = false;
                     res.redirect('/login');
                 }
-                // req.session.loginSuccess = true;
-                // req.session.alertLogin = true;
-                // req.session.uname = req.body.uname;
-                // res.redirect('/');
             }else{
-                // req.session.loginSuccess = false;
                 req.session.loginIncorrect = true;
                 req.session.alertLogin = false;
                 res.redirect('/login');
             }
 
     });
-    // if(req.session.loginSuccess){
-    //     res.redirect('/');
-    // }else{
-    //     res.redirect('/login');
-    // }
-    // req.session.uname = req.body.uname;
-    // req.session.alertLogin = false;
-    // res.redirect('/login');
 });
 
 app.get('/signup', (req, res) => {
@@ -147,7 +128,6 @@ app.post('/registoDB', (req, res) => {
 app.get('/logout', (req, res) => {
     req.session.alertLogin = false;
     req.session.loginComplete = false;
-    // res.render('index.hbs');
     res.redirect('/');
 });
 
@@ -168,19 +148,7 @@ app.get('/thaimovie', (req, res) => {
             login: req.session.alertLogin,
             uname: req.session.uname
         });
-        // res.render('showinformationmovie.hbs', {
-        //     datas: body
-        // });
     });
-
-    // res.render('thaimovie.hbs', {
-    //     informationmovie: body,
-    //     ss_thaimovie: req.session.thaimovie,
-    //     ss_othermovie: req.session.othermovie,
-    //     ss_cartoon: req.session.cartoon,
-    //     login: req.session.alertLogin,
-    //     uname: req.session.uname
-    // });
 });
 
 app.get('/othermovie', (req, res) => {
@@ -223,13 +191,6 @@ app.get('/cartoon', (req, res) => {
     });
 });
 
-// app.get('/bladerunner', (req, res) => {
-//     res.render('bladerunner.hbs', {
-//         login: req.session.alertLogin,
-//         uname: req.session.uname
-//     });
-// });
-
 app.get('/seemovie/:id', (req, res) => {
     if(req.session.loginComplete){
         request({
@@ -241,16 +202,11 @@ app.get('/seemovie/:id', (req, res) => {
                 login: req.session.alertLogin,
                 uname: req.session.uname
             });
-            // res.render('showinformationmovie.hbs', {
-            //     datas: body
-            // });
         });
     }else{
         req.session.plsLogin = true;
         res.redirect('/login');
     }
-
-    
 });
 
 //--------------------------- Admin -----------------------------------------------------------------
@@ -282,7 +238,6 @@ app.post('/addmovietodb', (req, res) => {
     var s = d.getSeconds();
     if(s<10) s = "0"+s;
     var dateTime = d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear() + " " + d.getHours() + ":" + m + ":" + s;
-    // console.log(dateTime);
     request.post(
         'http://localhost:3000/movie',
         { json: { 
@@ -298,14 +253,12 @@ app.post('/addmovietodb', (req, res) => {
             lastEdit: dateTime
         } },
         function (error, response, body) {
-            // console.log(response.statusCode);
             if (response.statusCode == "201") {
                 req.session.addmoviecomplete = true;
                 res.redirect('/addmovie');
             }
         }
     );
-    // res.redirect('/addmovie');
 });
 
 app.get('/getinformation/:id', (req, res) => {
@@ -319,9 +272,6 @@ app.get('/getinformation/:id', (req, res) => {
             login: req.session.alertLogin,
             uname: req.session.uname
         });
-        // res.render('showinformationmovie.hbs', {
-        //     datas: body
-        // });
     });
 });
 
@@ -333,7 +283,6 @@ app.get('/editmovieform/:id', (req, res) => {
         url: 'http://localhost:3000/movie/'+req.params.id,
         json: true
     }, (error, response, body) => {
-        // console.log(body.type);
         if (body.type == "thaimovie"){
             req.session.thaimovie = true
         }else if (body.type == "othermovie"){
@@ -354,14 +303,12 @@ app.get('/editmovieform/:id', (req, res) => {
 });
 
 app.post('/editmovie/:id', (req, res) => {
-    // console.log(req.body.createMovieDate);
     var d = new Date();
     var m = d.getMinutes();
     if(m<10) m = "0"+m;
     var s = d.getSeconds();
     if(s<10) s = "0"+s;
     var dateTime = d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear() + " " + d.getHours() + ":" + m + ":" + s;
-    // console.log(dateTime);
     request.put(
         'http://localhost:3000/movie/'+req.params.id,
         { json: { 
@@ -378,9 +325,7 @@ app.post('/editmovie/:id', (req, res) => {
             id: req.body.id
         } },
         function (error, response, body) {
-            // console.log(response.statusCode);
             if (response.statusCode == "200") {
-                // req.session.addmoviecomplete = true;
                 res.redirect('/showlistmovie');
             }
         }
@@ -388,12 +333,10 @@ app.post('/editmovie/:id', (req, res) => {
 });
 
 app.get('/delete/:id', (req, res) => {
-    // console.log("ok");
     request.delete(
         'http://localhost:3000/movie/'+req.params.id,
         
         function (error, response, body) {
-            // console.log(response.statusCode);
             res.redirect('/showlistmovie');
         }
     );
@@ -413,7 +356,6 @@ app.get('/showlistmovie', (req, res) => {
                 login: req.session.alertLogin,
                 ss_addmovie: req.session.ss_addmovie,
                 ss_showlistmovie: req.session.ss_showlistmovie,
-                // uname: req.session.uname
                 login: req.session.alertLogin,
                 uname: req.session.uname
             });
