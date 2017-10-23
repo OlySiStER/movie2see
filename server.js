@@ -3,6 +3,9 @@ const hbs = require('hbs');
 const request = require('request');
 var bodyParser = require('body-parser');
 var app = express();
+var moment = require('moment');
+var date = moment();
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set('view engine', 'hbs');
@@ -99,13 +102,13 @@ app.get('/signup', (req, res) => {
 });
 
 app.post('/registoDB', (req, res) => {
-    var password = passwordHash.generate(req.body.password);
-    var d = new Date();
-    var m = d.getMinutes();
-    if(m<10) m = "0"+m;
-    var s = d.getSeconds();
-    if(s<10) s = "0"+s;
-    var dateTime = d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear() + " " + d.getHours() + ":" + m + ":" + s;
+    // var password = passwordHash.generate(req.body.password);
+    // var d = new Date();
+    // var m = d.getMinutes();
+    // if(m<10) m = "0"+m;
+    // var s = d.getSeconds();
+    // if(s<10) s = "0"+s;
+    var dateTime = date.format('MMMM Do YYYY, h:mm:ss a');
     request.post(
         'http://localhost:3000/user',
         { json: { 
@@ -215,7 +218,6 @@ app.get('/addmovie', (req, res) => {
         req.session.ss_addmovie = true;
         req.session.ss_showlistmovie = false;
         req.session.alertLogin = true;
-        // console.log(req.session.uname);
         res.render('addmovie.hbs', {
             login: req.session.alertLogin,
             addmoviecomplete: req.session.addmoviecomplete,
@@ -232,12 +234,12 @@ app.get('/addmovie', (req, res) => {
 });
 
 app.post('/addmovietodb', (req, res) => {
-    var d = new Date();
-    var m = d.getMinutes();
-    if(m<10) m = "0"+m;
-    var s = d.getSeconds();
-    if(s<10) s = "0"+s;
-    var dateTime = d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear() + " " + d.getHours() + ":" + m + ":" + s;
+    // var d = new Date();
+    // var m = d.getMinutes();
+    // if(m<10) m = "0"+m;
+    // var s = d.getSeconds();
+    // if(s<10) s = "0"+s;
+    var dateTime = date.format('MMMM Do YYYY, h:mm:ss a');
     request.post(
         'http://localhost:3000/movie',
         { json: { 
@@ -303,12 +305,12 @@ app.get('/editmovieform/:id', (req, res) => {
 });
 
 app.post('/editmovie/:id', (req, res) => {
-    var d = new Date();
-    var m = d.getMinutes();
-    if(m<10) m = "0"+m;
-    var s = d.getSeconds();
-    if(s<10) s = "0"+s;
-    var dateTime = d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear() + " " + d.getHours() + ":" + m + ":" + s;
+    // var d = new Date();
+    // var m = d.getMinutes();
+    // if(m<10) m = "0"+m;
+    // var s = d.getSeconds();
+    // if(s<10) s = "0"+s;
+    var dateTime = date.format('MMMM Do YYYY, h:mm:ss a');
     request.put(
         'http://localhost:3000/movie/'+req.params.id,
         { json: { 
@@ -367,13 +369,13 @@ app.get('/showlistmovie', (req, res) => {
 });
 
 app.get('/getDateTime', (req, res) => {
-    var d = new Date();
-    var m = d.getMinutes();
-    if(m<10) m = "0"+m;
-    var s = d.getSeconds();
-    if(s<10) s = "0"+s;
-    var dateTime = d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear() + " " + d.getHours() + ":" + m + ":" + s;
-    console.log(dateTime);
+    // var d = new Date();
+    // var m = d.getMinutes();
+    // if(m<10) m = "0"+m;
+    // var s = d.getSeconds();
+    // if(s<10) s = "0"+s;
+    var dateTime = date.format('MMMM Do YYYY, h:mm:ss a');
+    // console.log(dateTime);
 });
 
 app.listen(3001, () => {
