@@ -1,6 +1,7 @@
 const express = require('express');
 const hbs = require('hbs');
 const request = require('request');
+const port = process.env.PORT || 3000;
 var bodyParser = require('body-parser');
 var app = express();
 var moment = require('moment');
@@ -378,6 +379,6 @@ app.get('/getDateTime', (req, res) => {
     // console.log(dateTime);
 });
 
-app.listen(3001, () => {
-    console.log('Server is up on port 3001');
+app.listen(port, () => {
+  console.log(`Server is up on ${port}`);
 });
