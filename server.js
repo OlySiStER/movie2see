@@ -48,7 +48,7 @@ app.get('/admin', (req, res) => {
             url: 'https://movie2see.herokuapp.com/api/movie',
             json: true
         }, (error, response, body) => {
-            res.render('adminindex.hbs', {
+            res.render('adminIndex.hbs', {
                 datas: body,
                 ss_homepage: req.session.homepage,
                 login: req.session.alertLogin,
