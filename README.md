@@ -2,6 +2,8 @@
 
 movie2see is a website to watch online movies.
 
+Go to website >> https://movie2see.herokuapp.com/
+
 Package/module required
 
     "body-parser": "^1.18.2",
@@ -9,7 +11,9 @@ Package/module required
     "express-session": "^1.15.6",
     "hbs": "^4.0.1",
     "json-server": "^0.12.0",
+    "moment": "^2.19.1",
     "password-hash": "^1.2.2"
+    
 You can get by open Power shell or CMD on home directory and run command (home directory is __directory\movie2see)
   - npm i -g json-server
   - npm i --save body-parser express express-session hbs password-hash
