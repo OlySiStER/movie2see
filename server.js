@@ -27,7 +27,7 @@ app.use('/api', jsonServer.router('db.json'));
 app.get('/', (req, res) => {
     req.session.homepage = true;
     request({
-        url: 'http://localhost:3001/api/movie',
+        url: 'https://movie2see.herokuapp.com/api/movie',
         json: true
     }, (error, response, body) => {
         res.render('index.hbs', {
@@ -45,7 +45,7 @@ app.get('/admin', (req, res) => {
     if(req.session.loginComplete){
         req.session.homepage = true;
         request({
-            url: 'http://localhost:3001/api/movie',
+            url: 'https://movie2see.herokuapp.com/api/movie',
             json: true
         }, (error, response, body) => {
             res.render('adminindex.hbs', {
@@ -77,7 +77,7 @@ app.get('/login', (req, res) => {
 
 app.post('/checklogin', (req, res) => {
     request({
-        url: 'http://localhost:3001/api/user?username='+req.body.uname,
+        url: 'https://movie2see.herokuapp.com/api/user?username='+req.body.uname,
         json: true
     }, (error, response, body) => {
             if(body.length != 0){
@@ -113,7 +113,7 @@ app.get('/signup', (req, res) => {
 app.post('/registoDB', (req, res) => {
     var dateTime = date.format('MMMM Do YYYY, h:mm:ss a');
     request.post(
-        'http://localhost:3001/api/user',
+        'https://movie2see.herokuapp.com/api/user',
         { json: { 
             id: null,
             email: req.body.email,
@@ -143,7 +143,7 @@ app.get('/thaimovie', (req, res) => {
     req.session.cartoon = false;
 
     request({
-        url: 'http://localhost:3001/api/movie/?type=thaimovie',
+        url: 'https://movie2see.herokuapp.com/api/movie/?type=thaimovie',
         json: true
     }, (error, response, body) => {
         res.render('thaimovie.hbs', {
@@ -163,7 +163,7 @@ app.get('/othermovie', (req, res) => {
     req.session.cartoon = false;
 
     request({
-        url: 'http://localhost:3001/api/movie/?type=othermovie',
+        url: 'https://movie2see.herokuapp.com/api/movie/?type=othermovie',
         json: true
     }, (error, response, body) => {
         res.render('thaimovie.hbs', {
@@ -183,7 +183,7 @@ app.get('/cartoon', (req, res) => {
     req.session.cartoon = true;
 
     request({
-        url: 'http://localhost:3001/api/movie/?type=cartoon',
+        url: 'https://movie2see.herokuapp.com/api/movie/?type=cartoon',
         json: true
     }, (error, response, body) => {
         res.render('thaimovie.hbs', {
@@ -200,7 +200,7 @@ app.get('/cartoon', (req, res) => {
 app.get('/seemovie/:id', (req, res) => {
     if(req.session.loginComplete){
         request({
-            url: 'http://localhost:3001/api/movie/'+req.params.id,
+            url: 'https://movie2see.herokuapp.com/api/movie/'+req.params.id,
             json: true
         }, (error, response, body) => {
             res.render('seemovie.hbs',{
@@ -239,7 +239,7 @@ app.get('/addmovie', (req, res) => {
 app.post('/addmovietodb', (req, res) => {
     var dateTime = date.format('MMMM Do YYYY, h:mm:ss a');
     request.post(
-        'http://localhost:3001/api/movie',
+        'https://movie2see.herokuapp.com/api/movie',
         { json: { 
             id: null,
             title: req.body.title,
@@ -263,7 +263,7 @@ app.post('/addmovietodb', (req, res) => {
 
 app.get('/getinformation/:id', (req, res) => {
     request({
-        url: 'http://localhost:3001/api/movie/'+req.params.id,
+        url: 'https://movie2see.herokuapp.com/api/movie/'+req.params.id,
         json: true
     }, (error, response, body) => {
         req.session.alertLogin = true;
@@ -280,7 +280,7 @@ app.get('/editmovieform/:id', (req, res) => {
     req.session.othermovie = false;
     req.session.cartoon = false;
     request({
-        url: 'http://localhost:3001/api/movie/'+req.params.id,
+        url: 'https://movie2see.herokuapp.com/api/movie/'+req.params.id,
         json: true
     }, (error, response, body) => {
         if (body.type == "thaimovie"){
@@ -305,7 +305,7 @@ app.get('/editmovieform/:id', (req, res) => {
 app.post('/editmovie/:id', (req, res) => {
     var dateTime = date.format('MMMM Do YYYY, h:mm:ss a');
     request.put(
-        'http://localhost:3001/api/movie/'+req.params.id,
+        'https://movie2see.herokuapp.com/api/movie/'+req.params.id,
         { json: { 
             
             title: req.body.title,
@@ -329,7 +329,7 @@ app.post('/editmovie/:id', (req, res) => {
 
 app.get('/delete/:id', (req, res) => {
     request.delete(
-        'http://localhost:3001/api/movie/'+req.params.id,
+        'https://movie2see.herokuapp.com/api/movie/'+req.params.id,
         
         function (error, response, body) {
             res.redirect('/showlistmovie');
@@ -340,7 +340,7 @@ app.get('/delete/:id', (req, res) => {
 app.get('/showlistmovie', (req, res) => {
     if(req.session.loginComplete){
         request({
-            url: 'http://localhost:3001/api/movie',
+            url: 'https://movie2see.herokuapp.com/api/movie',
             json: true
         }, (error, response, body) => {
             req.session.ss_addmovie = false;
