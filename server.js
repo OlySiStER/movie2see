@@ -111,6 +111,7 @@ app.get('/signup', (req, res) => {
 });
 
 app.post('/registoDB', (req, res) => {
+    var password = passwordHash.generate(req.body.password);
     var dateTime = date.format('MMMM Do YYYY, h:mm:ss a');
     request.post(
         'https://movie2see.herokuapp.com/api/user',
